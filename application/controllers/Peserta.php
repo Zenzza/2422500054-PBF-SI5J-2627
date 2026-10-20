@@ -22,7 +22,7 @@ class Peserta extends CI_Controller {
     public function hapus($nopeserta)
     {
         $this->model_peserta->hapus_peserta($nopeserta);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success" roel="alert">Data Berhasil Dihapus</div>');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data Berhasil Dihapus</div>');
         redirect('peserta');
     }
 }

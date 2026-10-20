@@ -24,7 +24,7 @@ class Pendaftaran extends CI_Controller {
     public function hapus($nopendaftaran)
     {
         $this->model_pendaftaran->hapus_pendaftaran($nopendaftaran);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success" roel="alert">Data Berhasil Dihapus</div>');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data Berhasil Dihapus</div>');
         redirect('pendaftaran');
     }
 }

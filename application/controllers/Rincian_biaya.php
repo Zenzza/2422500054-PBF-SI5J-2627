@@ -22,7 +22,7 @@ class rincian_biaya extends CI_Controller {
     public function hapus($idrincian)
     {
         $this->model_rincian_biaya->hapus_rincian_biaya($idrincian);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success" roel="alert">Data Berhasil Dihapus</div>');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data Berhasil Dihapus</div>');
         redirect('rincian_biaya');
     }
 
@@ -75,14 +75,17 @@ class rincian_biaya extends CI_Controller {
     }
 
     public function editrincian_biaya($idrincian=0){
+        if(isset($_POST['submit']))
+        { 
+            $this->_prosesedit();
+            return;
+        }
+
         $data['edit'] = $this->model_rincian_biaya->get_data_rincian_biaya($idrincian);
         $this->load->view('template/header');
         //$this->load->view('template/sidebar');
         $this->load->view('editrincian_biaya',$data);
         $this->load->view('template/footer');
-
-        if(isset($_POST['submit']))
-        { $this->_prosesedit();}
     }
 
     private function _prosesedit(){
@@ -96,7 +99,7 @@ class rincian_biaya extends CI_Controller {
 
         $where = array('idrincian' => $idrincian);
         $this->model_rincian_biaya->edit_data_rincian_biaya($where, $data);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success" roel="alert">Data Berhasil DiUbah</div>');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data Berhasil DiUbah</div>');
         redirect('rincian_biaya');
     }
 }

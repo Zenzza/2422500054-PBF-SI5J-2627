@@ -22,7 +22,7 @@ class Program_kursus extends CI_Controller {
     public function hapus($idprogramkursus)
     {
         $this->model_program_kursus->hapus_program_kursus($idprogramkursus);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success" roel="alert">Data Berhasil Dihapus</div>');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data Berhasil Dihapus</div>');
         redirect('program_kursus');
     }
 
@@ -75,14 +75,17 @@ class Program_kursus extends CI_Controller {
     }
 
     public function editprogram_kursus($idprogramkursus=0){
+        if(isset($_POST['submit']))
+        { 
+            $this->_prosesedit();
+            return;
+        }
+
         $data['edit'] = $this->model_program_kursus->get_data_program_kursus($idprogramkursus);
         $this->load->view('template/header');
         //$this->load->view('template/sidebar');
         $this->load->view('editprogram_kursus',$data);
         $this->load->view('template/footer');
-
-        if(isset($_POST['submit']))
-        { $this->_prosesedit();}
     }
 
     private function _prosesedit(){
@@ -96,7 +99,7 @@ class Program_kursus extends CI_Controller {
 
         $where = array('idprogramkursus' => $idprogramkursus);
         $this->model_program_kursus->edit_data_program_kursus($where, $data);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success" roel="alert">Data Berhasil DiUbah</div>');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data Berhasil DiUbah</div>');
         redirect('program_kursus');
     }
 }

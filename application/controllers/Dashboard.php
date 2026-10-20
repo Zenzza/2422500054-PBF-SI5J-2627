@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
 	public function index(){
-        echo "<h1>Selamat Datang di Website Kami</h1>";
+		$this->load->view('template/header');
+		$this->load->view('dashboard');
+		$this->load->view('template/footer');
 	}
 }
+?>

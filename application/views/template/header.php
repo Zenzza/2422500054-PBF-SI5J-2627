@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url("assets/") ?>css/sb-admin-2.min.css" rel="stylesheet">
-
+    <script type="text/javascript" src="<?php echo base_url("assets/") ?>js/jquery-1.11.1.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -102,7 +102,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Laporan</h6>
                         <a class="collapse-item" href="<?= base_url('peserta');?>" >Peserta</a>
-                        <a class="collapse-item" href="<?= base_url('program_kursus');?>">Program Kursus</a>
+                        <a class="collapse-item" href="<?= base_url('laporan_kursus');?>">Program Kursus</a>
                         <a class="collapse-item" href="<?= base_url('rincian_biaya');?>">Rincian Biaya</a>
                     </div>
                 </div>

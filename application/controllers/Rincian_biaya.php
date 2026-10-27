@@ -35,7 +35,7 @@ class rincian_biaya extends CI_Controller {
             $nilaikode = substr($datakode['idrincian'], 2);
             $kode = (int)$nilaikode;
             $kode += 1;
-            $hasilkode = "PK" . str_pad($kode, 3, '0', STR_PAD_LEFT);
+            $hasilkode = "RB" . str_pad($kode, 3, '0', STR_PAD_LEFT);
         } else {
             $hasilkode = "RB001";
         }

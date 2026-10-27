@@ -177,22 +177,28 @@
             </tr>
         </thead>
         <tbody>
-            <?php $no = 1; foreach ($data['data'] as $key => $r): ?>
-            <tr>
-                <td align="center"><?= $no++; ?></td>
-                <td align="center"><?= $r['nokwitansi']; ?></td>
-                <td align="center"><?= $r['tglkwitansi']; ?></td>
-                <td align="center"><?= $r['nmpeserta']; ?></td>
-                <td align="center"><?= $r['nmprogramkursus']; ?></td>
-                <td align="center"><?= $r['keterangan']; ?></td>
-                <td align="center">Rp. <?= number_format($r['total_bayar'],0,',','.'); ?></td>
-            </tr>
-            <?php endforeach; ?>
+            <?php if (!empty($data['data'])): ?>
+                <?php $no = 1; foreach ($data['data'] as $key => $r): ?>
+                <tr>
+                    <td align="center"><?= $no++; ?></td>
+                    <td align="center"><?= $r['nokwitansi']; ?></td>
+                    <td align="center"><?= $r['tglkwitansi']; ?></td>
+                    <td align="center"><?= $r['nmpeserta']; ?></td>
+                    <td align="center"><?= $r['nmprogramkursus']; ?></td>
+                    <td align="center"><?= $r['keterangan']; ?></td>
+                    <td align="center">Rp. <?= number_format($r['total_bayar'],0,',','.'); ?></td>
+                </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="7" align="center">Tidak ada data untuk periode ini</td>
+                </tr>
+            <?php endif; ?>
         </tbody>
     </table>
 
     <div class="total">
-        Grand Total : Rp <?= number_format($r['total_bayar'],0,',','.'); ?>
+        Grand Total : Rp <?= number_format(!empty($data['total_seluruh_laporan']) ? $data['total_seluruh_laporan'] : 0, 0, ',', '.'); ?>
     </div>
 
     <!-- FOOTER -->

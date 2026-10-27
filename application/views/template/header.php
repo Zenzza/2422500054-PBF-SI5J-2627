@@ -101,9 +101,8 @@
                 <div id="collapseLaporan" class="collapse" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Laporan</h6>
-                        <a class="collapse-item" href="<?= base_url('peserta');?>" >Peserta</a>
+                        <a class="collapse-item" href="<?= base_url('laporan_peserta');?>" >Peserta</a>
                         <a class="collapse-item" href="<?= base_url('laporan_kursus');?>">Program Kursus</a>
-                        <a class="collapse-item" href="<?= base_url('rincian_biaya');?>">Rincian Biaya</a>
                     </div>
                 </div>
             </li>       <!-- Divider -->

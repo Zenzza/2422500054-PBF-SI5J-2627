@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['lihat_peserta'] = 'peserta';
 $route['lihat_pendaftaran'] = 'pendaftaran';
 $route['laporan_kursus'] = 'laporan';
+$route['laporan_peserta'] = 'laporan_peserta';

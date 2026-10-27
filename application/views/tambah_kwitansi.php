@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="totalbayar">Total Bayar</label>
-                                    <input type="number" class="form-control" id="totalbayar" name="totalbayar" placeholder="Masukkan Total Bayar" required>
+                                    <input type="number" class="form-control" id="totalbayar" name="totalbayar" placeholder="Masukkan Total Bayar" readonly>
                                 </div>
                             </div>
                             

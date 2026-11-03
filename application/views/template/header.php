@@ -69,6 +69,7 @@
                         <a class="collapse-item" href="<?= base_url('peserta');?>" >Peserta</a>
                         <a class="collapse-item" href="<?= base_url('program_kursus');?>">Program Kursus</a>
                         <a class="collapse-item" href="<?= base_url('rincian_biaya');?>">Rincian Biaya</a>
+                        <a class="collapse-item" href="<?= base_url('krs');?>">KRS</a>     
                     </div>
                 </div>
             </li>

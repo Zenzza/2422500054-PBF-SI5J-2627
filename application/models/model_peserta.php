@@ -29,5 +29,19 @@ class Model_peserta extends CI_Model {
             'data' => $data
         ];
     }
+
+    public function cetak_peserta($nopeserta)
+    {
+        $this->db->select('peserta.*, peserta.notelpon AS notelepon, pendaftaran.tglregistrasi, program_kursus.idprogramkursus, program_kursus.nmprogramkursus');
+        $this->db->from('peserta');
+        $this->db->join('pendaftaran', 'pendaftaran.nopeserta = peserta.nopeserta', 'left');
+        $this->db->join('program_kursus', 'program_kursus.idprogramkursus = pendaftaran.idprogramkursus', 'left');
+        $this->db->where('peserta.nopeserta', $nopeserta);
+        $data = $this->db->get()->result_array();
+
+        return [
+            'data' => $data
+        ];
+    }
 }
 ?>

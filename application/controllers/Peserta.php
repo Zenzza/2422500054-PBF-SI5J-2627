@@ -19,6 +19,18 @@ class Peserta extends CI_Controller {
         { $this->_inputdata();}
     }
 
+    public function cetak($nopeserta = 0)
+    {
+        if ($nopeserta) {
+            $data['data'] = $this->model_peserta->cetak_peserta($nopeserta);
+            $data['tanggal_mulai'] = date('Y-m-d');
+            $data['tanggal_selesai'] = date('Y-m-d');
+            $this->load->view('laporan_peserta', $data);
+        } else {
+            redirect('peserta');
+        }
+    }
+
     public function hapus($nopeserta)
     {
         $this->model_peserta->hapus_peserta($nopeserta);

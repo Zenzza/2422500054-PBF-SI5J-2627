@@ -15,11 +15,23 @@ class Laporan_peserta extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    public function cetak($nopeserta = 0)
+    {
+        if ($nopeserta) {
+            $data['data'] = $this->model_peserta->cetak_peserta($nopeserta);
+            $data['tanggal_mulai'] = date('Y-m-d');
+            $data['tanggal_selesai'] = date('Y-m-d');
+            $this->load->view('laporan_peserta', $data);
+        } else {
+            redirect('laporan_peserta');
+        }
+    }
+
     public function cetak_laporan_peserta() {
         $tanggal_mulai = $this->input->post('tanggal_mulai');
         $tanggal_selesai = $this->input->post('tanggal_selesai');
 
-    $data['data'] = $this->model_peserta->laporan_peserta($tanggal_mulai, $tanggal_selesai);
+        $data['data'] = $this->model_peserta->laporan_peserta($tanggal_mulai, $tanggal_selesai);
         $data['tanggal_mulai'] = $tanggal_mulai;
         $data['tanggal_selesai'] = $tanggal_selesai;
 

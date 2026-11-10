@@ -1,5 +1,10 @@
 RewriteEngine On
 RewriteBase /pbf_jordi/
+
+# Jangan proses request untuk folder admin (biarkan admin/.htaccess yang memproses)
+RewriteCond %{REQUEST_URI} ^/pbf_jordi/admin [NC]
+RewriteRule ^ - [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]

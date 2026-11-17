@@ -52,14 +52,20 @@
             <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a> 
           </div>
           <div class="col-lg-3 text-right">
-            <a href="login.html" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>
-            <a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>
+            <?php
+              if(($this->session->userdata('email')) != null) {   ?>
+                <b>Selamat Datang, <?php echo $this->session->userdata('nama') ? $this->session->userdata('nama') : $this->session->userdata('email'); ?></b>
+                <a href="<?php echo base_url('Login/logout'); ?>" class="btn btn-info btn-sm ml-2">Logout</a>
+              <?php }else{ ?>
+                <a href="<?php echo base_url('login'); ?>" class="small mr-3"><span class="icon-unlock-alt mr-1"></span>Login</a>
+                <a href="<?php echo base_url('login/registrasi'); ?>" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users mr-1"></span>Register</a>
+            <?php } ?>
           </div>
         </div>
       </div>
     </div>
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
       <div class="container">
         <div class="d-flex align-items-center">
           <div class="site-logo">
@@ -91,7 +97,6 @@
                 </li>
               </ul>
             </nav>
-
           </div>
           <div class="ml-auto">
             <div class="social-wrap">
@@ -103,8 +108,6 @@
                 class="icon-menu h3"></span></a>
             </div>
           </div>
-         
         </div>
       </div>
-
     </header>
